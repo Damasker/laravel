@@ -4,8 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'composer install' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true 
+                sh label: '', script: '''composer install
+                                         php artisan key:generate
+                                         php artisan db:refresh
+                                         php artisan migrate --seed
+                                         php artisan vendor:publish''' 
             }
         }
     }
