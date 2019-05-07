@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh label: '', script: '''composer install
                                          php artisan key:generate
-                                         php artisan db:refresh
+                                         php artisan migrate:refresh
                                          php artisan migrate --seed
                                          php artisan vendor:publish''' 
             }
