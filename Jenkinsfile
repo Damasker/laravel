@@ -9,6 +9,7 @@ pipeline {
                                          php artisan migrate:refresh
                                          php artisan migrate --seed
                                          php artisan vendor:publish''' 
+                archiveArtifacts '**/*.*'
             }
         }
     }
