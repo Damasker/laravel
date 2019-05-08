@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-    DATABASE_USER = env.DATABASE_USER
+        DATABASE_USER = ${env.DATABASE_USER}
     }
     stages {
         stage('Build') {
