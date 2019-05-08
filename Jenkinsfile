@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+    environment {
+        DATABASE_USER = env('jenkins-database-user')
+        DATABASE_PASS = env('jenkins-database-pass')
+    }
     stages {
         stage('Build') {
             steps {
