@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+    DATABASE_USER = env.DATABASE_USER
+    }
     stages {
         stage('Build') {
             steps {
@@ -9,7 +11,7 @@ pipeline {
                                          php artisan migrate:refresh
                                          php artisan migrate --seed
                                          php artisan vendor:publish
-                                         echo $DATABASE_USER''' 
+                                         'echo $DATABASE_USER'''' 
                 
             }
         }
