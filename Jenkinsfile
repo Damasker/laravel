@@ -10,9 +10,8 @@ pipeline {
                                          php artisan key:generate
                                          php artisan migrate:refresh
                                          php artisan migrate --seed
-                                         php artisan vendor:publish
-                                         'echo $DATABASE_USER'''' 
-                
+                                         php artisan vendor:publish''' 
+                echo $DATABASE_USER
             }
         }
     }
